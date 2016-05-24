@@ -4,7 +4,7 @@ from os import listdir
 from os.path import (isfile, isdir, join, abspath)
 import subprocess
 import random
-
+import sys
 
 
 # Default VLC Media Player path on Windows
@@ -13,8 +13,6 @@ windows_vlc_path = "C:\Program Files\VideoLAN\VLC\VLC.exe"
 # Default VLC Media Player path on Mac OS
 mac_vlc_path 	 = "/Applications/VLC.app/Contents/MacOS/VLC"
 
-# Where your Show is located on your computer
-show_path 	= "/Users/admin/Desktop/season7"
 
 # Supported Extensions
 extensions 	= ['avi', 'mkv', 'mp4', 'mpg']
@@ -76,12 +74,16 @@ def play(video_path) :
 
 
 if __name__ == "__main__":
-	vlc_path = getVlcPath()
-	dig(show_path)
-	print "--------------------------------------------------------------------"
-	print("{0} video files found!\n").format(len(playables))
-	print "--------------------------------------------------------------------"
-	print("\n Let's play something for you!")
-	print "--------------------------------------------------------------------"
-	choice = random.choice(playables)
-	play(choice)
+	if len(sys.argv) > 1:
+		vlc_path = getVlcPath()
+		show_path = sys.argv[1]
+		dig(show_path)
+		print "--------------------------------------------------------------------"
+		print("{0} video files found!\n").format(len(playables))
+		print "--------------------------------------------------------------------"
+		print("\n Let's play something for you!")
+		print "--------------------------------------------------------------------"
+		choice = random.choice(playables)
+		play(choice)
+	else:
+		print "Invalid Command. \n Usage: ./PyBuff.py <show_path>"
