@@ -83,7 +83,10 @@ if __name__ == "__main__":
 		print "--------------------------------------------------------------------"
 		print("\n Let's play something for you!")
 		print "--------------------------------------------------------------------"
-		choice = random.choice(playables)
-		play(choice)
+		if len(playables) > 0:
+			choice = random.choice(playables)
+			play(choice)
+		else:
+			print "The path for the show you provided is either empty or contains unsupported file formats!"
 	else:
 		print "Invalid Command. \n Usage: ./PyBuff.py <show_path>"
