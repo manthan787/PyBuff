@@ -1,10 +1,10 @@
 #!/usr/local/bin/python
-
 import platform
 from os import listdir
 from os.path import (isfile, isdir, join, abspath)
 import subprocess
 import random
+
 
 # Where your Show is located on your computer
 show_path 	= "/Users/admin/Desktop/season7"
@@ -15,7 +15,6 @@ playables 	= []
 
 
 def getVlcPath() :
-
 	if platform.system() == 'Darwin':
 		return "/Applications/VLC.app/Contents/MacOS/VLC"
 
