@@ -6,20 +6,31 @@ import subprocess
 import random
 
 
+
+# Default VLC Media Player path on Windows
+windows_vlc_path = "C:\Program Files\VideoLAN\VLC\VLC.exe"
+
+# Default VLC Media Player path on Mac OS
+mac_vlc_path 	 = "/Applications/VLC.app/Contents/MacOS/VLC"
+
 # Where your Show is located on your computer
 show_path 	= "/Users/admin/Desktop/season7"
+
 # Supported Extensions
 extensions 	= ['avi', 'mkv', 'mp4', 'mpg']
+
 # List of all the playable files
 playables 	= []
 
 
+# DO NOT CHANGE ANYTHING FROM THIS POINT ONWARDS
+# ENJOY!
 def getVlcPath() :
 	if platform.system() == 'Darwin':
-		return "/Applications/VLC.app/Contents/MacOS/VLC"
+		return mac_vlc_path
 
 	elif platform.system() == 'Windows':
-		return "C:\Program Files\VideoLAN\VLC\VLC.exe"
+		return windows_vlc_path
 
 
 def dig(path) :
